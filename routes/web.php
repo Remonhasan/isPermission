@@ -18,6 +18,10 @@ Route::get('/login', [LoginController::class, 'index'])->name('login.page');
 Route::post('login', [LoginController::class, 'login'])->name('login');
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
+// caching data routes
+Route::get('/cached-category/{name}', [CategoryController::class, 'showCachedCategory']);
+
+
 // Authentication Routes
 Route::middleware(['auth'])->prefix('admin')->group(function () {
     // Dashboard
@@ -28,16 +32,11 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
         Route::get('/list', [CategoryController::class, 'index'])->name('category.list');
         Route::get('/add', [CategoryController::class, 'add'])->name('category.add');
         Route::post('/add', [CategoryController::class, 'store'])->name('category.store');
-        Route::get('/{category}', [CategoryController::class, 'show'])->name('category.show');
+        Route::get('/edit/{id}', [CategoryController::class, 'edit'])->name('category.edit');
+        Route::post('/update/{id}', [CategoryController::class, 'update'])->name('category.update');
+        Route::get('/delete/{id}', [CategoryController::class, 'destroy'])->name('category.delete');
 
     });
-
-    // // Product Routes
-    // Route::prefix('product')->group(function () {
-    //     Route::get('/list', [ProductController::class, 'index'])->name('product.list');
-    //     Route::get('/add', [ProductController::class, 'add'])->name('product.create');
-    // });
-    
 });
 
 
