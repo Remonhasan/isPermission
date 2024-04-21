@@ -13,8 +13,14 @@
                 </li>
                 <li>
                     <a href="{{ route('category.list') }}" class="waves-effect">
-                        <i class="dripicons-meter"></i>
+                        <i class="fas fa-hard-hat"></i>
                         <span>Category</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="waves-effect">
+                        <i class="fab fa-shopify"></i>
+                        <span>Product</span>
                     </a>
                 </li>
 

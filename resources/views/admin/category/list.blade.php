@@ -66,8 +66,8 @@
                                                         </a>
 
                                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                            <a class="dropdown-item" href="{{ route('category.edit', $category->id)}}">Edit</a>
-                                                            <a class="dropdown-item" href="{{ route('category.delete', $category->id)}}">Delete</a>
+                                                            <a class="dropdown-item" href="{{ route('category.edit', $category->id)}}"><i class="fas fa-edit"></i> Edit</a>
+                                                            <a class="dropdown-item" href="{{ route('category.delete', $category->id)}}"><i class="fas fa-trash"></i> Delete</a>
                                                         </div>
                                                     </div>
                                                 </div>
