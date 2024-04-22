@@ -1,7 +1,7 @@
 @extends('layouts.admin.master')
 @section('styles')
 @endsection
-@section('title', 'Categories')
+@section('title', 'Products')
 @section('admin_content')
     <div class="page-content">
         <div class="container-fluid">
@@ -34,8 +34,10 @@
                                 <thead>
                                     <tr>
                                         <th class="text-center">SL</th>
+                                        <th class="text-center">Image</th>
                                         <th class="text-center">Name (English)</th>
                                         <th class="text-center">Name (Bangla)</th>
+                                        <th class="text-center">Category</th>
                                         <th class="text-center">Status</th>
                                         <th class="text-center">Action</th>
                                     </tr>
@@ -43,13 +45,18 @@
 
 
                                 <tbody>
-                                    @foreach ($categories as $key => $category)
+                                    @foreach ($products as $key => $product)
                                         <tr>
                                             <td class="text-center">{{ $key + 1 }}</td>
-                                            <td class="text-center">{{ $category->name_en }}</td>
-                                            <td class="text-center">{{ $category->name_bn }}</td>
+                                            <td>
+                                                <img src="{{ asset($product->image) }}" alt="{{ $product->name_en }}" height="60"
+                                                    width="60">
+                                            </td>
+                                            <td class="text-center">{{ $product->name_en }}</td>
+                                            <td class="text-center">{{ $product->name_bn }}</td>
+                                            <td class="text-center">{{ $product->category_name_en }}</td>
                                             <td class="text-center">
-                                                @if ($category->status === 1)
+                                                @if ($product->status === 1)
                                                     <span class="badge bg-success">Active</span>
                                                 @else
                                                     <span class="badge bg-danger">Inactive</span>
@@ -66,8 +73,9 @@
                                                         </a>
 
                                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                            <a class="dropdown-item" href="{{ route('category.edit', $category->id)}}"><i class="fas fa-edit"></i> Edit</a>
-                                                            <a class="dropdown-item" href="{{ route('category.delete', $category->id)}}"><i class="fas fa-trash"></i> Delete</a>
+                                                            <a class="dropdown-item" href="{{ route('product.show', $product->id)}}"><i class="fas fa-eye"></i> View</a>
+                                                            <a class="dropdown-item" href="{{ route('product.edit', $product->id)}}"><i class="fas fa-edit"></i> Edit</a>
+                                                            <a class="dropdown-item" href="{{ route('product.delete', $product->id)}}"><i class="fas fa-trash"></i> Delete</a>
                                                         </div>
                                                     </div>
                                                 </div>
