@@ -18,7 +18,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="waves-effect">
+                    <a href="{{ route('product.list') }}" class="waves-effect">
                         <i class="fab fa-shopify"></i>
                         <span>Product</span>
                     </a>
