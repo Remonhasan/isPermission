@@ -66,8 +66,15 @@
                                                         </a>
 
                                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                            <a class="dropdown-item" href="{{ route('category.edit', $category->id)}}"><i class="fas fa-edit"></i> Edit</a>
-                                                            <a class="dropdown-item" href="{{ route('category.delete', $category->id)}}"><i class="fas fa-trash"></i> Delete</a>
+                                                          
+                                                            @if ($permissions['edit'] == 1)
+                                                             <a class="dropdown-item" href="{{ route('category.edit', $category->id)}}"><i class="fas fa-edit"></i> Edit</a>
+                                                            @endif
+                                                            
+                                                            @if ($permissions['delete'] == 1)
+                                                             <a class="dropdown-item" href="{{ route('category.delete', $category->id)}}"><i class="fas fa-trash"></i> Delete</a>
+                                                            @endif
+                                                            
                                                         </div>
                                                     </div>
                                                 </div>
