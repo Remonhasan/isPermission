@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Permission;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -14,7 +16,10 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
-        return view('admin.category.list', compact('categories'));
+        $userId = Auth::id();
+        $permissions = Permission::where('user_id', $userId)->where('scope','category')->first();
+        
+        return view('admin.category.list', compact('categories', 'permissions'));
     }
 
     public function add()

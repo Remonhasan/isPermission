@@ -77,7 +77,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="waves-effect">
+                            <a href="{{ route('permission.list') }}" class="waves-effect">
                                 <i class="fas fa-check-double"></i>
                                 <span>Permission</span>
                             </a>

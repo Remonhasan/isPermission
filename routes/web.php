@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
@@ -60,6 +61,12 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/edit/{id}', [CouponController::class, 'edit'])->name('coupon.edit');
             Route::post('/update/{id}', [CouponController::class, 'update'])->name('coupon.update');
             Route::get('/delete/{id}', [CouponController::class, 'destroy'])->name('coupon.delete');
+        });
+
+         // Permission Routes 
+         Route::prefix('permission')->group(function () {
+            Route::get('/list', [PermissionController::class, 'index'])->name('permission.list');
+            Route::post('/update', [PermissionController::class, 'update'])->name('permission.update');
         });
     });
 });
