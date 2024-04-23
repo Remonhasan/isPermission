@@ -32,7 +32,7 @@ class LoginController extends Controller
 
             if (Auth::attempt($credentials)) {
                 // Authentication passed
-                toastr()->success('Logged in successfully!', 'Congrats', ['timeOut' => 5000]);
+                // toastr()->success('Logged in successfully!', 'Congrats', ['timeOut' => 5000]);
                 return redirect()->route('admin.dashboard');
             }
 
