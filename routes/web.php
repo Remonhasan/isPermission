@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\LoginController;
@@ -49,6 +50,16 @@ Route::middleware(['auth'])->group(function () {
             Route::post('/update/{id}', [ProductController::class, 'update'])->name('product.update');
             Route::get('/{product}', [ProductController::class, 'show'])->name('product.show');
             Route::get('/delete/{id}', [ProductController::class, 'destroy'])->name('product.delete');
+        });
+
+        // Coupons Routes 
+        Route::prefix('coupon')->group(function () {
+            Route::get('/list', [CouponController::class, 'index'])->name('coupon.list');
+            Route::get('/add', [CouponController::class, 'add'])->name('coupon.add');
+            Route::post('/add', [CouponController::class, 'store'])->name('coupon.store');
+            Route::get('/edit/{id}', [CouponController::class, 'edit'])->name('coupon.edit');
+            Route::post('/update/{id}', [CouponController::class, 'update'])->name('coupon.update');
+            Route::get('/delete/{id}', [CouponController::class, 'destroy'])->name('coupon.delete');
         });
     });
 });
