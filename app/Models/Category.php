@@ -26,4 +26,9 @@ class Category extends Model
     {
         return $query->where('id', $categoryId)->first();
     }
+
+    public function scopeGetLatest($query)
+    {
+        return $query->latest()->where('status', 1)->get();
+    }
 }
