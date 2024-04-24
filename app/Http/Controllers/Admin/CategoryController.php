@@ -15,10 +15,10 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::all();
-        $userId = Auth::id();
-        $permissions = Permission::where('user_id', $userId)->where('scope','category')->first();
-        
+        $categories  = Category::all();
+        $userId      = Auth::id();
+        $permissions = Permission::getPermission($userId)->first();  // Eloquent Query Scopes applied
+
         return view('admin.category.list', compact('categories', 'permissions'));
     }
 
@@ -52,8 +52,7 @@ class CategoryController extends Controller
 
                 DB::commit();
 
-                toastr()->success('Category created successfully!', 'Success', ['timeOut' => 5000]);
-                return redirect()->route('category.list');
+                return redirect()->route('category.list')->with('success', 'Category created successfully!');
             } catch (\Exception $e) {
                 DB::rollback();
                 // Remove cached category if database transaction fails
@@ -93,8 +92,7 @@ class CategoryController extends Controller
 
             DB::commit();
 
-            toastr()->success('Category updated successfully!', 'Success', ['timeOut' => 5000]);
-            return redirect()->route('category.list');
+            return redirect()->route('category.list')->with('success', 'Category updated successfully!');
         } catch (\Exception $e) {
             DB::rollback();
             return back()->withInput()->withErrors(['error' => 'Failed to update category.']);
@@ -103,12 +101,11 @@ class CategoryController extends Controller
 
     public function destroy($categoryId)
     {
-        $category = Category::where('id', $categoryId)->first();
+        $category = Category::getCategory($categoryId); // Eloquent Query Scopes applied
         if (!empty($category)) {
             $category->delete();
 
-            toastr()->success('Category deleted successfully!', 'Success', ['timeOut' => 5000]);
-            return redirect()->back();
+            return redirect()->back()->with('success', 'Category deleted successfully!');
         } else {
             return back()->withErrors(['error' => 'Failed to delete category.']);
         }

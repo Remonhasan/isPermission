@@ -42,4 +42,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+
+    /**
+     * Get user info by $userId 
+     * Eloquent Query Scopes applied
+     * @param  mixed $query
+     * @param  mixed $userId
+     * @return void
+     */
+    public function scopeUserInfoById($query, $userId)
+    {
+        return $query->where('id', $userId)->first();
+    }
 }

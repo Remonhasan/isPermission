@@ -71,7 +71,7 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li>
-                            <a href="#" class="waves-effect">
+                            <a href="{{ route('profile.list') }}" class="waves-effect">
                                 <i class="fas fa-user-check"></i>
                                 <span>Profile</span>
                             </a>

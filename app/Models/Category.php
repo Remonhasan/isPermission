@@ -14,4 +14,16 @@ class Category extends Model
         'name_bn',
         'status',
     ];
+
+    /**
+     * Get category by $categoryId
+     * Eloquent Query Scopes applied
+     * @param  mixed $query
+     * @param  mixed $categoryId
+     * @return void
+     */
+    public function scopeGetCategory($query, $categoryId)
+    {
+        return $query->where('id', $categoryId)->first();
+    }
 }
