@@ -202,26 +202,19 @@
                 <div class="dropdown d-inline-block">
                     <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img class="rounded-circle header-profile-user me-2" src="{{ asset('backend/assets/images/users/avatar-1.jpg') }}"
-                            alt="Header Avatar" />
-                        <span class="d-none d-md-inline-block ms-1">Donald T. <i class="mdi mdi-chevron-down"></i>
+                        {{-- <img class="rounded-circle header-profile-user me-2" src="{{ asset('backend/assets/images/users/avatar-1.jpg') }}"
+                            alt="Header Avatar" /> --}}
+                        <span class="d-none d-md-inline-block ms-1"><b>{{ Auth::user()->name }}</b> <i class="mdi mdi-chevron-down"></i>
                         </span>
                     </button>
                     <div class="dropdown-menu dropdown-menu-end">
                         <!-- item-->
-                        <a class="dropdown-item" href="#"><i
+                        <a class="dropdown-item" href="{{ route('profile.list') }}"><i
                                 class="dripicons-user font-size-16 align-middle d-inline-block me-1"></i>
                             Profile</a>
-                        <a class="dropdown-item" href="#"><i
-                                class="dripicons-wallet font-size-16 align-middle d-inline-block me-1"></i>
-                            My Wallet</a>
-                        <a class="dropdown-item d-block" href="#"><span
-                                class="badge bg-success float-end">11</span><i
+                        <a class="dropdown-item d-block" href="{{ route('permission.list') }}"><i
                                 class="dripicons-gear font-size-16 align-middle me-1"></i>
                             Settings</a>
-                        <a class="dropdown-item" href="#"><i
-                                class="dripicons-lock-open font-size-16 align-middle d-inline-block me-1"></i>
-                            Lock screen</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item text-danger" href="javascript:void(0)" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
                                 class="dripicons-power-off font-size-16 align-middle me-1 text-danger"></i>
