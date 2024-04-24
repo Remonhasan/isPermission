@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\admin\ProductController;
+use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
@@ -65,8 +66,13 @@ Route::middleware(['auth'])->group(function () {
 
          // Permission Routes 
          Route::prefix('permission')->group(function () {
-            Route::get('/list', [PermissionController::class, 'index'])->name('permission.list');
+            Route::get('/', [PermissionController::class, 'index'])->name('permission.list');
             Route::post('/update', [PermissionController::class, 'update'])->name('permission.update');
+        });
+
+        Route::prefix('profile')->group(function () {
+            Route::get('/', [ProfileController::class, 'index'])->name('profile.list');
+            Route::post('/update', [ProfileController::class, 'update'])->name('profile.update');
         });
     });
 });

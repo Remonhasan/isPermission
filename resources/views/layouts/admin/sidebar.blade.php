@@ -6,7 +6,7 @@
             <ul class="metismenu list-unstyled" id="side-menu">
                 <li class="menu-title text-uppercase">Main</li>
                 <li>
-                    <a href="ayouts-dark-sidebar.html" class="waves-effect">
+                    <a href="{{ route('admin.dashboard') }}" class="waves-effect">
                         <i class="dripicons-meter"></i>
                         <span>Dashboard</span>
                     </a>
