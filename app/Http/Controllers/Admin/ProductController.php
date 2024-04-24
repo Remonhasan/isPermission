@@ -63,8 +63,7 @@ class ProductController extends Controller
 
             DB::commit();
 
-            toastr()->success('Product created successfully!', 'Success', ['timeOut' => 5000]);
-            return redirect()->route('product.list');
+            return redirect()->route('product.list')->with('success', 'Product created successfully!');
         } catch (\Exception $e) {
             // Get specific error
             // dd($e->getMessage());
@@ -75,7 +74,7 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product    = product::findOrFail($id);
-        $categories = Category::latest()->where('status', 1)->get();
+        $categories = Category::getLatest();
 
         return view('admin.product.edit', compact('product', 'categories'));
     }
@@ -120,8 +119,7 @@ class ProductController extends Controller
 
             DB::commit();
 
-            toastr()->success('Product updated successfully!', 'Success', ['timeOut' => 5000]);
-            return redirect()->route('product.list');
+            return redirect()->route('product.list')->with('success', 'Product updated successfully!');
         } catch (\Exception $e) {
             DB::rollback();
             return back()->withInput()->withErrors(['error' => 'Failed to update product.']);
@@ -135,12 +133,12 @@ class ProductController extends Controller
 
     public function destroy($productId)
     {
-        $product = product::where('id', $productId)->first();
+        $product = Product::getProduct($productId);
+
         if (!empty($product)) {
             $product->delete();
 
-            toastr()->success('Product deleted successfully!', 'Success', ['timeOut' => 5000]);
-            return redirect()->back();
+            return redirect()->back()->with('success', 'Product deleted successfully!');
         } else {
             return back()->withErrors(['error' => 'Failed to delete product.']);
         }

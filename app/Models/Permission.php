@@ -18,4 +18,16 @@ class Permission extends Model
         'delete',
         'list',
     ];
+    
+    /**
+     * Get Permission
+     * Eloquent Query Scopes applied
+     * @param  mixed $query
+     * @param  mixed $userId
+     * @return void
+     */
+    public function scopeGetPermission($query, $userId)
+    {
+        return $query->where('user_id', $userId)->where('scope', 'category');
+    }
 }

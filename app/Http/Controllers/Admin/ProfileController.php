@@ -15,7 +15,7 @@ class ProfileController extends Controller
     public function index()
     {
         $userId = Auth::id();
-        $userInfo = User::where('id', $userId)->first();
+        $userInfo = User::userInfoById($userId);
 
         return view('admin.profile.profile', compact('userInfo'));
     }

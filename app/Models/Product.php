@@ -33,4 +33,9 @@ class Product extends Model
             ->select('products.*', 'categories.name_en as category_name_en', 'categories.name_bn as category_name_bn')
             ->paginate(5);
     }
+
+    public function scopeGetProduct($query, $productId)
+    {
+        return $query->where('id', $productId)->first();
+    }
 }
