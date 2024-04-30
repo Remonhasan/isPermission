@@ -6,16 +6,18 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('layouts.frontend.index');
+// });
 
 // Visitor Routes
+Route::get('/', [FrontendController::class, 'index'])->name('homepage');
 Route::get('/register', [RegisterController::class, 'index'])->name('register.page');
 Route::post('/register', [RegisterController::class, 'store'])->name('register');
 Route::get('/login', [LoginController::class, 'index'])->name('login.page');
