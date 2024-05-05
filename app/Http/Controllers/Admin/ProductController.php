@@ -143,4 +143,21 @@ class ProductController extends Controller
             return back()->withErrors(['error' => 'Failed to delete product.']);
         }
     }
+
+    public function getProductByCategory(Request $request)
+    {
+        // Retrieve the category ID from the request
+        $categoryId = $request->input('categoryId');
+
+        // Query products based on the category ID
+        if ($categoryId === 'all') {
+            $products = Product::all(); // Fetch all products
+           
+        } else {
+            $products = Product::where('category_id', $categoryId)->get(); // Fetch products by category ID
+        }
+
+        // Return the products as JSON response
+        return response()->json(['products' => $products]);
+    }
 }

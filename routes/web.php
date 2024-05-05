@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
@@ -23,6 +24,9 @@ Route::post('/register', [RegisterController::class, 'store'])->name('register')
 Route::get('/login', [LoginController::class, 'index'])->name('login.page');
 Route::post('login', [LoginController::class, 'login'])->name('login');
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/products', [ProductController::class, 'getProductByCategory']);
+
+Route::get('/cart', [CartController::class, 'index'])->name('cart');
 
 // caching data routes
 Route::get('/cached-category/{name}', [CategoryController::class, 'showCachedCategory']);

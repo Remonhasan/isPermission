@@ -52,9 +52,8 @@
                                         height="20px">
                                         <use xlink:href="images/sprite.svg#heart-20"></use>
                                     </svg> <span class="indicator__value">0</span></span></a></div>
-                        <div class="indicator indicator--mobile"><a href="cart.html"
-                                class="indicator__button"><span class="indicator__area"><svg width="20px"
-                                        height="20px">
+                        <div class="indicator indicator--mobile"><a href="cart.html" class="indicator__button"><span
+                                    class="indicator__area"><svg width="20px" height="20px">
                                         <use xlink:href="images/sprite.svg#cart-20"></use>
                                     </svg> <span class="indicator__value">3</span></span></a></div>
                     </div>
@@ -70,14 +69,14 @@
         <div class="site-header__topbar topbar">
             <div class="topbar__container container">
                 <div class="topbar__row">
-                    <div class="topbar__item topbar__item--link"><a class="topbar-link"
-                            href="about-us.html">About Us</a></div>
+                    <div class="topbar__item topbar__item--link"><a class="topbar-link" href="about-us.html">About
+                            Us</a></div>
                     <div class="topbar__item topbar__item--link"><a class="topbar-link"
                             href="contact-us.html">Contacts</a></div>
                     <div class="topbar__item topbar__item--link"><a class="topbar-link" href="#">Store
                             Location</a></div>
-                    <div class="topbar__item topbar__item--link"><a class="topbar-link"
-                            href="track-order.html">Track Order</a></div>
+                    <div class="topbar__item topbar__item--link"><a class="topbar-link" href="track-order.html">Track
+                            Order</a></div>
                     <div class="topbar__item topbar__item--link"><a class="topbar-link"
                             href="blog-classic.html">Blog</a></div>
                     <div class="topbar__spring"></div>
@@ -97,9 +96,8 @@
                         </div>
                     </div>
                     <div class="topbar__item">
-                        <div class="topbar-dropdown"><button class="topbar-dropdown__btn"
-                                type="button">Currency: <span class="topbar__item-value">USD</span> <svg
-                                    width="7px" height="5px">
+                        <div class="topbar-dropdown"><button class="topbar-dropdown__btn" type="button">Currency: <span
+                                    class="topbar__item-value">USD</span> <svg width="7px" height="5px">
                                     <use xlink:href="images/sprite.svg#arrow-rounded-down-7x5"></use>
                                 </svg></button>
                             <div class="topbar-dropdown__body"><!-- .menu -->
@@ -113,9 +111,8 @@
                         </div>
                     </div>
                     <div class="topbar__item">
-                        <div class="topbar-dropdown"><button class="topbar-dropdown__btn"
-                                type="button">Language: <span class="topbar__item-value">EN</span> <svg
-                                    width="7px" height="5px">
+                        <div class="topbar-dropdown"><button class="topbar-dropdown__btn" type="button">Language:
+                                <span class="topbar__item-value">EN</span> <svg width="7px" height="5px">
                                     <use xlink:href="images/sprite.svg#arrow-rounded-down-7x5"></use>
                                 </svg></button>
                             <div class="topbar-dropdown__body"><!-- .menu -->
@@ -188,18 +185,19 @@
                                     <div class="departments__links-wrapper">
                                         <ul class="departments__links">
 
-                                            @foreach($categories as $category)
-                                            <li class="departments__item"><a href="#">{{ $category->name_en }}<svg
-                                                        class="departments__link-arrow" width="6px"
-                                                        height="9px">
-                                                        <use
-                                                            xlink:href="images/sprite.svg#arrow-rounded-right-6x9">
-                                                        </use>
-                                                    </svg></a>
-                                                
-                                            </li>
+                                            @foreach ($categories as $category)
+                                                <li class="departments__item"><a
+                                                        href="#">{{ $category->name_en }}<svg
+                                                            class="departments__link-arrow" width="6px"
+                                                            height="9px">
+                                                            <use
+                                                                xlink:href="images/sprite.svg#arrow-rounded-right-6x9">
+                                                            </use>
+                                                        </svg></a>
+
+                                                </li>
                                             @endforeach
-                                            
+
                                         </ul>
                                     </div>
                                 </div><button class="departments__button"><svg class="departments__button-icon"
@@ -240,8 +238,7 @@
                                                     <ul class="megamenu__links megamenu__links--level--0">
                                                         <li class="megamenu__item megamenu__item--with-submenu">
                                                             <a href="#">Power Tools</a>
-                                                            <ul
-                                                                class="megamenu__links megamenu__links--level--1">
+                                                            <ul class="megamenu__links megamenu__links--level--1">
                                                                 <li class="megamenu__item"><a
                                                                         href="#">Engravers</a></li>
                                                                 <li class="megamenu__item"><a
@@ -254,8 +251,7 @@
                                                         </li>
                                                         <li class="megamenu__item megamenu__item--with-submenu">
                                                             <a href="#">Machine Tools</a>
-                                                            <ul
-                                                                class="megamenu__links megamenu__links--level--1">
+                                                            <ul class="megamenu__links megamenu__links--level--1">
                                                                 <li class="megamenu__item"><a href="#">Thread
                                                                         Cutting</a></li>
                                                                 <li class="megamenu__item"><a href="#">Chip
@@ -276,8 +272,7 @@
                                                     <ul class="megamenu__links megamenu__links--level--0">
                                                         <li class="megamenu__item megamenu__item--with-submenu">
                                                             <a href="#">Hand Tools</a>
-                                                            <ul
-                                                                class="megamenu__links megamenu__links--level--1">
+                                                            <ul class="megamenu__links megamenu__links--level--1">
                                                                 <li class="megamenu__item"><a
                                                                         href="#">Screwdrivers</a></li>
                                                                 <li class="megamenu__item"><a
@@ -294,8 +289,7 @@
                                                         </li>
                                                         <li class="megamenu__item megamenu__item--with-submenu">
                                                             <a href="#">Garden Equipment</a>
-                                                            <ul
-                                                                class="megamenu__links megamenu__links--level--1">
+                                                            <ul class="megamenu__links megamenu__links--level--1">
                                                                 <li class="megamenu__item"><a href="#">Motor
                                                                         Pumps</a></li>
                                                                 <li class="megamenu__item"><a
@@ -322,8 +316,7 @@
                                         <ul class="menu menu--layout--classic">
                                             <li><a href="shop-grid-3-columns-sidebar.html">Shop Grid <svg
                                                         class="menu__arrow" width="6px" height="9px">
-                                                        <use
-                                                            xlink:href="images/sprite.svg#arrow-rounded-right-6x9">
+                                                        <use xlink:href="images/sprite.svg#arrow-rounded-right-6x9">
                                                         </use>
                                                     </svg></a>
                                                 <div class="menu__submenu"><!-- .menu -->
@@ -341,8 +334,7 @@
                                             <li><a href="shop-right-sidebar.html">Shop Right Sidebar</a></li>
                                             <li><a href="product.html">Product <svg class="menu__arrow"
                                                         width="6px" height="9px">
-                                                        <use
-                                                            xlink:href="images/sprite.svg#arrow-rounded-right-6x9">
+                                                        <use xlink:href="images/sprite.svg#arrow-rounded-right-6x9">
                                                         </use>
                                                     </svg></a>
                                                 <div class="menu__submenu"><!-- .menu -->
@@ -409,15 +401,24 @@
                             </ul>
                         </div><!-- .nav-links / end -->
                         <div class="nav-panel__indicators">
-                            <div class="indicator"><a href="wishlist.html" class="indicator__button"><span
-                                        class="indicator__area"><svg width="20px" height="20px">
+                            {{-- <div class="indicator">
+                                <a href="wishlist.html" class="indicator__button">
+                                    <span class="indicator__area">
+                                        <svg width="20px" height="20px">
                                             <use xlink:href="images/sprite.svg#heart-20"></use>
-                                        </svg> <span class="indicator__value">0</span></span></a></div>
-                            <div class="indicator indicator--trigger--click"><a href="cart.html"
-                                    class="indicator__button"><span class="indicator__area"><svg width="20px"
-                                            height="20px">
-                                            <use xlink:href="images/sprite.svg#cart-20"></use>
-                                        </svg> <span class="indicator__value">3</span></span></a>
+                                        </svg> 
+                                    <span class="indicator__value">0</span>
+                                </span></a>
+                            </div> --}}
+
+                            <div class="indicator indicator--trigger--click">
+                                <a href="{{ route('cart')}}" class="indicator__button">
+                                    <span class="indicator__area">
+                                       <i class="fas fa-shopping-cart "></i>
+                                        <span id="cartCount" class="indicator__value" style="background-color: red;">0</span>
+                                    </span>
+                                </a>
+
                                 <div class="indicator__dropdown"><!-- .dropcart -->
                                     <div class="dropcart">
                                         <div class="dropcart__products-list">
@@ -459,27 +460,7 @@
                                                         <use xlink:href="images/sprite.svg#cross-10"></use>
                                                     </svg></button>
                                             </div>
-                                            <div class="dropcart__product">
-                                                <div class="dropcart__product-image"><a href="product.html"><img
-                                                            src="images/products/product-5.jpg" alt=""></a>
-                                                </div>
-                                                <div class="dropcart__product-info">
-                                                    <div class="dropcart__product-name"><a
-                                                            href="product.html">Brandix Router Power Tool
-                                                            2017ERXPK</a></div>
-                                                    <ul class="dropcart__product-options">
-                                                        <li>Color: True Red</li>
-                                                    </ul>
-                                                    <div class="dropcart__product-meta"><span
-                                                            class="dropcart__product-quantity">3</span> x <span
-                                                            class="dropcart__product-price">$1,210.00</span>
-                                                    </div>
-                                                </div><button type="button"
-                                                    class="dropcart__product-remove btn btn-light btn-sm btn-svg-icon"><svg
-                                                        width="10px" height="10px">
-                                                        <use xlink:href="images/sprite.svg#cross-10"></use>
-                                                    </svg></button>
-                                            </div>
+
                                         </div>
                                         <div class="dropcart__totals">
                                             <table>
@@ -501,10 +482,11 @@
                                                 </tr>
                                             </table>
                                         </div>
+
                                         <div class="dropcart__buttons"><a class="btn btn-secondary"
-                                                href="cart.html">View Cart</a> <a class="btn btn-primary"
+                                                href="{{ route('cart')}}">View Cart</a> <a class="btn btn-primary"
                                                 href="checkout.html">Checkout</a></div>
-                                    </div><!-- .dropcart / end -->
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -513,4 +495,4 @@
             </div>
         </div>
     </div>
-</header><!-- desktop site__header / end --><!-- site__body -->
+</header>
