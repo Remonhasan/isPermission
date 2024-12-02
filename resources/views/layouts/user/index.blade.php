@@ -1,6 +1,6 @@
-@extends('layouts.admin.master')
-@section('title', 'Admin Dashboard')
-@section('admin_content')
+@extends('layouts.user.master')
+@section('title', 'My Dashboard')
+@section('user_content')
 
 <div class="page-content">
     <div class="container-fluid">
