@@ -70,8 +70,12 @@
                                                         </a>
 
                                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                            @if ($permissions['edit'])
                                                             <a class="dropdown-item" href="{{ route('coupon.edit', $coupon->id)}}"><i class="fas fa-edit"></i> Edit</a>
+                                                            @endif
+                                                            @if ($permissions['delete'])
                                                             <a class="dropdown-item" href="{{ route('coupon.delete', $coupon->id)}}"><i class="fas fa-trash"></i> Delete</a>
+                                                            @endif
                                                         </div>
                                                     </div>
                                                 </div>

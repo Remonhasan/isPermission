@@ -73,9 +73,15 @@
                                                         </a>
 
                                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                            @if ($permissions['view'])
                                                             <a class="dropdown-item" href="{{ route('product.show', $product->id)}}"><i class="fas fa-eye"></i> View</a>
+                                                            @endif
+                                                            @if ($permissions['edit'])
                                                             <a class="dropdown-item" href="{{ route('product.edit', $product->id)}}"><i class="fas fa-edit"></i> Edit</a>
+                                                            @endif
+                                                            @if ($permissions['delete'])
                                                             <a class="dropdown-item" href="{{ route('product.delete', $product->id)}}"><i class="fas fa-trash"></i> Delete</a>
+                                                            @endif
                                                         </div>
                                                     </div>
                                                 </div>

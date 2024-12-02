@@ -26,9 +26,9 @@ class Permission extends Model
      * @param  mixed $userId
      * @return void
      */
-    public function scopeGetPermission($query, $userId)
+    public function scopeGetPermission($query, $userId, $scopeName)
     {
-        return $query->where('user_id', $userId)->where('scope', 'category');
+        return $query->where('user_id', $userId)->where('scope', $scopeName);
     }
 
     /**

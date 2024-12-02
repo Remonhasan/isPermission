@@ -4,8 +4,10 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Permission;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
@@ -15,8 +17,10 @@ class ProductController extends Controller
     {
         $productModel = new Product();
         $products     = $productModel->geProductList();
+        $userId      = Auth::id();
+        $permissions = Permission::getPermission($userId,'product')->first();
 
-        return view('admin.product.list', compact('products'));
+        return view('admin.product.list', compact('products','permissions'));
     }
 
     public function add()

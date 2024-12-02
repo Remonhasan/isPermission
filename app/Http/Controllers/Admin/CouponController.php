@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Coupon;
+use App\Models\Permission;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
@@ -13,7 +15,9 @@ class CouponController extends Controller
     public function index()
     {
         $coupons = Coupon::all();
-        return view('admin.coupon.list', compact('coupons'));
+        $userId      = Auth::id();
+        $permissions = Permission::getPermission($userId,'coupon')->first();
+        return view('admin.coupon.list', compact('coupons','permissions'));
     }
 
     public function add()

@@ -67,11 +67,11 @@
 
                                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                                           
-                                                            @if ($permissions['edit'] == 1)
+                                                            @if ($permissions['edit'])
                                                              <a class="dropdown-item" href="{{ route('category.edit', $category->id)}}"><i class="fas fa-edit"></i> Edit</a>
                                                             @endif
                                                             
-                                                            @if ($permissions['delete'] == 1)
+                                                            @if ($permissions['delete'])
                                                              <a class="dropdown-item" href="{{ route('category.delete', $category->id)}}"><i class="fas fa-trash"></i> Delete</a>
                                                             @endif
                                                             

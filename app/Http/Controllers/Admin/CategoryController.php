@@ -17,7 +17,7 @@ class CategoryController extends Controller
     {
         $categories  = Category::all();
         $userId      = Auth::id();
-        $permissions = Permission::getPermission($userId)->first();  // Eloquent Query Scopes applied
+        $permissions = Permission::getPermission($userId,'category')->first();  // Eloquent Query Scopes applied
 
         return view('admin.category.list', compact('categories', 'permissions'));
     }
