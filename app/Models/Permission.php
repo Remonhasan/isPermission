@@ -30,4 +30,16 @@ class Permission extends Model
     {
         return $query->where('user_id', $userId)->where('scope', 'category');
     }
+
+    /**
+     * Get Permission by userId
+     * Eloquent Query Scopes applied
+     * @param  mixed $query
+     * @param  mixed $userId
+     * @return void
+     */
+    public function scopeGetPermissionByUserId($query, $userId)
+    {
+        return $query->where('user_id', $userId)->get()->toArray();
+    }
 }

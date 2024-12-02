@@ -89,7 +89,7 @@
     <script src="{{ asset('backend/assets/js/pages/form-validation.init.js') }}"></script>
 
     <script src="{{ asset('backend/assets/js/app.js') }}"></script>
-
+    @stack('script')
 </body>
 
 

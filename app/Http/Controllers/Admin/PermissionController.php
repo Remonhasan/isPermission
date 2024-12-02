@@ -18,6 +18,19 @@ class PermissionController extends Controller
         return view('admin.permission.permission', compact('users'));
     }
 
+    public function getUserPermissions($userId)
+    {
+        $user = User::find($userId);
+
+        if (!$user) {
+            return response()->json(['error' => 'User not found'], 404);
+        }
+
+        $permissions = Permission::getPermissionByUserId($userId);
+        return response()->json(['permissions' => $permissions]);
+    }
+
+
     public function update(Request $request)
     {
 

@@ -73,6 +73,7 @@ Route::middleware(['auth'])->group(function () {
          // Permission Routes 
          Route::prefix('permission')->group(function () {
             Route::get('/', [PermissionController::class, 'index'])->name('permission.list');
+            Route::get('/get-user-permissions/{userId}', [PermissionController::class, 'getUserPermissions']);
             Route::post('/update', [PermissionController::class, 'update'])->name('permission.update');
         });
 
