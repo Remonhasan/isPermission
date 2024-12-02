@@ -10,6 +10,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\User\DashboardController as UserDashboardController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -31,9 +32,12 @@ Route::get('/cart', [CartController::class, 'index'])->name('cart');
 // caching data routes
 Route::get('/cached-category/{name}', [CategoryController::class, 'showCachedCategory']);
 
-
 // Authentication Routes
 Route::middleware(['auth'])->group(function () {
+    // User Routes
+    Route::middleware((['user']))->prefix('user')->group(function(){
+        Route::get('/dashboard', [UserDashboardController::class, 'index'])->name('user.dashboard');
+    });
     // Admin Routes
     Route::middleware(['admin'])->prefix('admin')->group(function () {
         // Dashboard

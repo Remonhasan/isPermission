@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -16,7 +17,6 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         try {
-
             $validator = Validator::make($request->all(), [
                 'email'    => 'required|string|email',
                 'password' => 'required|string',
@@ -31,8 +31,14 @@ class LoginController extends Controller
             $credentials = $request->only('email', 'password');
 
             if (Auth::attempt($credentials)) {
-                // Authentication passed
-                // toastr()->success('Logged in successfully!', 'Congrats', ['timeOut' => 5000]);
+                
+                $userEmail = $credentials['email'];
+                $userRole  = User::findRoleByEmail($userEmail);
+
+                if (!empty($userRole) && $userRole === 'user') {
+                    return redirect()->route('user.dashboard');
+                }
+
                 return redirect()->route('admin.dashboard');
             }
 
@@ -41,6 +47,7 @@ class LoginController extends Controller
             return back()->withErrors(['error' => 'Failed to authenticate user'])->withInput();
         }
     }
+
 
     public function logout()
     {
@@ -51,7 +58,6 @@ class LoginController extends Controller
             toastr()->success('Logout successfully!');
             return redirect()->route('login');
         } catch (\Exception $e) {
-            // Set an error toast, with a title
             toastr()->error('Oops! Failed to logout!', 'Oops!');
             return redirect()->back();
         }

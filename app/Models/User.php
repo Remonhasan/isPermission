@@ -56,4 +56,16 @@ class User extends Authenticatable
     {
         return $query->where('id', $userId)->first();
     }
+
+    /**
+     * Find user role by email
+     *
+     * @param  mixed $query
+     * @param  mixed $email
+     * @return void
+     */
+    public function scopeFindRoleByEmail($query, $email)
+    {
+        return $query->where('email', $email)->value('role');
+    }
 }
