@@ -32,13 +32,15 @@ class LoginController extends Controller
 
             if (Auth::attempt($credentials)) {
                 
-                $userEmail = $credentials['email'];
-                $userRole  = User::findRoleByEmail($userEmail);
+                $user = Auth::user();
+                
+                if ($user->isUser()) {
 
-                if (!empty($userRole) && $userRole === 'user') {
+                    session(['isUser' => true, 'isAdmin' => false]);
                     return redirect()->route('user.dashboard');
                 }
 
+                session(['isUser' => false, 'isAdmin' => true]);
                 return redirect()->route('admin.dashboard');
             }
 
